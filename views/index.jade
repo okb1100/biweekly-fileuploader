@@ -15,5 +15,7 @@ block content
                     .panel-body
                             form(enctype='multipart/form-data')
                                 input(id='file' type="file" name='fileToUpload')
-                                button(id='upload') Upload
+                            .progress
+                                .progress-bar(role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1003")
+                                    | 0%
     script(src="js/main.js")

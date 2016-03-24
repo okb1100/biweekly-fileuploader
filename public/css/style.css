@@ -4,5 +4,11 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: inherit;
 }
+
+.progress{
+    display: none;
+}
+
+
