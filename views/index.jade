@@ -3,19 +3,20 @@ extends layout
 block content
     .container-fluid
         .row
-            .col-md-6.col-md-offset-3
-                .panel.panel-default
-                    .panel-body
-                        | This is okb1100's file uploader for 
-                        a(href='http://thedevchannel.com/') The DevChannel's
-                        |  biweekly challenge #2
+            .col-md-6.col-centered
+                .alert.alert-info
+                    | This is okb1100's file uploader for 
+                    a.alert-link(href='http://thedevchannel.com/') The DevChannel's
+                    |  biweekly challenge #2
         .row
-            .col-md-6.col-md-offset-3
-                .panel.panel-default
-                    .panel-body
-                            form(enctype='multipart/form-data')
-                                input(id='file' type="file" name='fileToUpload')
-                            .progress
-                                .progress-bar(role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1003")
-                                    | 0%
+            .col-md-4.col-centered
+                .well
+                        button.btn.btn-primary.center-block#fakeFile
+                            span.glyphicon.glyphicon-upload
+                            |  Upload a file.
+                        form(enctype='multipart/form-data')
+                            input(id='file' type="file" name='fileToUpload')
+                        .progress
+                            .progress-bar(role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1003")
+                            | 0%
     script(src="js/main.js")

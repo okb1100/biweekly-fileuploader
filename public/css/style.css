@@ -1,8 +1,3 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 a {
   color: inherit;
 }
@@ -10,5 +5,24 @@ a {
 .progress{
     display: none;
 }
+#file{
+    display: none;
+}
 
+.col-centered{
+    float: none !important;
+    margin: 0 auto;
+}
 
+body{
+    margin-top: 15px !important;
+}
+
+/* Just for fancy editing with chrome developer tools xd */
+*{
+    -webkit-transition: all 1s;
+       -moz-transition: all 1s;
+        -ms-transition: all 1s;
+         -o-transition: all 1s;
+            transition: all 1s;
+}

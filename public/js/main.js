@@ -39,23 +39,23 @@ var upload = function() {
         processData: false,
         contentType: false,
         beforeSend: function() {
-            $('.progress').show('slow');
+            $('#fakeFile').hide('slow', function() {
+                $('.progress').show('slow');
+            });
         },
         progress: function(e) {
            if(e.lengthComputable){
             var pct = Math.round((e.loaded / e.total) * 100);
-            $('.progress-bar').attr('aria-valuenow', pct);
-            $('.progress-bar').css('width', pct + "%");
-            $('.progress-bar').html(pct + "%");
+            $('.progress-bar').attr('aria-valuenow', pct).css('width', pct + "%").html(pct + "%");
            }
         },
         success: function(response) {
             //success event
-            $('.progress-bar').addClass('progress-bar-success');
-            $('.progress-bar').html("Success!");
+            $('.progress-bar').addClass('progress-bar-success').html("Success!");
        },
        error: function(jqXHR, textStatus, errorMessage) {
            console.log(errorMessage); // Optional
+           $('.progress-bar').addClass('progress-bar-danger').html("Error!");
        }
     });
 };
@@ -65,4 +65,6 @@ $('#file').on('change',function(event) {
     event.preventDefault();
     upload();
 });
-
+$('#fakeFile').click(function(event) {
+    $('#file').click();
+});
