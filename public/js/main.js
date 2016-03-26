@@ -52,9 +52,10 @@ var upload = function() {
         success: function(response) {
             //success event
             $('.progress-bar').addClass('progress-bar-success').html("Success!");
+            var url = '<a href="/files/' + response + '"> here </a>';
+            $('#status').show().html("Your file is uploaded, you can reach it at " + url);
        },
        error: function(jqXHR, textStatus, errorMessage) {
-           console.log(errorMessage); // Optional
            $('.progress-bar').addClass('progress-bar-danger').html("Error!");
        }
     });

@@ -26,3 +26,7 @@ body{
          -o-transition: all 1s;
             transition: all 1s;
 }
+
+#status{
+  display: none;
+}

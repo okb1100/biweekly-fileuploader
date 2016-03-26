@@ -5,4 +5,4 @@ A simple file upload app in javascript for [DevChannel's](http://thedevchannel.c
 
 + clone this repo
 + install deps with `$ npm install`
-+ run with `npm start`
++ run with `$ npm start`
