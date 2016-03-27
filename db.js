@@ -4,6 +4,24 @@ var exists = fs.existsSync(file);
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(file);
 
+var getFromDatabase = function(obj){
+   db.parallelize(function() {
+    if(obj.length){
+        db.get("SELECT * FROM files where fileName = '" + obj + "';", function(err, row) {
+            if(!err){
+                if(row)
+                    return row;
+                else
+                    return obj + " not found in database";
+            }
+            else{
+                return err;
+            }
+
+        });
+    }
+   });
+}
 
 var saveToDatabase = function(obj) {
     db.serialize(function() {
