@@ -69,3 +69,36 @@ $('#file').on('change',function(event) {
 $('#fakeFile').click(function(event) {
     $('#file').click();
 });
+var displayFile = function(f) {
+    $('#name').html(f.name);
+    //Convert to kbyte-mbyte later.
+    $('#fileSize').html(f.size);
+    $('#mimeType').html(f.mimeType);
+
+    imgRegex = new RegExp('image');
+    // txtRegex = new RegExp ...
+
+    if (imgRegex.test(f.mimeType)){
+        $('#imagePreview').attr('src', '../uploads/' + f.fileName);
+    }
+
+    // if (txt)....
+
+
+}
+
+var loadFile = function() {
+    var uuid = $('.hidden').html();
+    $.ajax({
+        url: '/upload/' + uuid,
+        type: 'GET'
+    })
+    .done(function(res) {
+        var file = res;
+        displayFile(file);
+    })
+    .fail(function() {
+        console.log("error");
+    });
+    
+}

@@ -29,7 +29,7 @@ node_modules
 npm-debug.log
 
 # Uploads directory
-uploads
+public/uploads
 
 # Database file
 database.sqlite3

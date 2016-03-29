@@ -5,23 +5,12 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(file);
 
 var getFromDatabase = function(obj){
-   db.parallelize(function() {
-    if(obj.length){
-        db.get("SELECT * FROM files where fileName = '" + obj + "';", function(err, row) {
-            if(!err){
-                if(row)
-                    return row;
-                else
-                    return obj + " not found in database";
-            }
-            else{
-                return err;
-            }
-
-        });
-    }
-   });
+    db.get("SELECT * FROM files where fileName = '" + obj + "' ;", function(err,row) {
+        result = row;
+    });
+    return result;
 }
+                                
 
 var saveToDatabase = function(obj) {
     db.serialize(function() {
@@ -46,6 +35,6 @@ var database = function(t, obj) {
     if(t=='upload')
         saveToDatabase(obj);
     if(t=='get')
-        getFromDatabase(obj);
+        return getFromDatabase(obj);
 };
 module.exports = database;

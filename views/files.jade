@@ -1,7 +1,23 @@
 extends layout
 block content
+    .hidden #{uuid}
     .container-fluid
         .row
-            .col-md-6.col-centered
-                | File will be shown here.
+            .col-md-6
+                img.thumbnail#imagePreview
+            .col-md-6
+                .panel.panel-info
+                    .panel-heading
+                        | File Name
+                    .panel-body#name
+                .panel.panel-info
+                    .panel-heading
+                        | Size
+                    .panel-body#fileSize
+                .panel.panel-info
+                    .panel-heading
+                        | Type
+                    .panel-body#mimeType
     script(src='/js/main.js')
+    script
+         $('document').ready(function(){loadFile();});
