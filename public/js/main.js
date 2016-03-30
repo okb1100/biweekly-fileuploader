@@ -70,19 +70,25 @@ $('#fakeFile').click(function(event) {
     $('#file').click();
 });
 var displayFile = function(f) {
+    $('document').prop('title', f.name);
     $('#name').html(f.name);
     //Convert to kbyte-mbyte later.
     $('#fileSize').html(f.size);
     $('#mimeType').html(f.mimeType);
 
     imgRegex = new RegExp('image');
-    // txtRegex = new RegExp ...
+    txtRegex = new RegExp('text');
 
     if (imgRegex.test(f.mimeType)){
-        $('#imagePreview').attr('src', '../uploads/' + f.fileName);
+        $('#imagePreview').addClass('thumbnail').attr('src', '../uploads/' + f.fileName);
     }
+    if (txtRegex.test(f.mimeType)){
 
-    // if (txt)....
+        $.get('../uploads/' + f.fileName, function(data) {
+            $('#txtPreview').show().html(data);
+        });
+        
+    }
 
 
 }
